@@ -39,7 +39,6 @@ export default {};
       padding-left: 0.23rem;
       flex: 1;
       height: 2.38rem;
-      border-top: 1px solid #eee;
       display: flex;
       flex-direction: column;
       .g_info {

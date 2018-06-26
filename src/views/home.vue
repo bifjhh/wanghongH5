@@ -39,9 +39,9 @@
       </div>
     </div>
     <div class="tab">
-      <div class="tabnav" v-if="0">
-        <div class="active">新品上市</div>
-        <div>全部商品</div>
+      <div class="tabnav" v-if="1">
+        <div :class="controlClass==1 ? 'active' : '' "   ref="content" @click="goTop(1)">新品上市</div>
+        <div @click="goTop(2)" :class="controlClass==2 ? 'active' : '' " >全部商品</div>
       </div>
       <div class="product_box" v-if="1">
         <div class="product_title">
@@ -51,12 +51,12 @@
     
       </div>
       <div class="all_product ">
-        <div class="all_title">
+        <div class="all_title" ref="allShops">
           全部商品
         </div>
         <GoodsTmp2 />
         <GoodsTmp3 />
-        <div class="get_all">查看全部商品</div>
+        <div class="get_all" @click="go">查看全部商品</div>
       </div>
     </div>
   </div>
@@ -82,9 +82,57 @@ export default {
   },
 
   data: () => ({
-    discounts: [1, 2, 3]
+    discounts: [1, 2, 3],
+    controlClass: 1
   }),
-  methods: {}
+  methods: {
+    go() {
+      document.documentElement.scrollTop = 0;
+      this.$router.push("goodsList1");
+    },
+    goTop(e) {
+      let total = "";
+      if (e == 1) {
+        this.controlClass = 1;
+        total = this.$refs.content.offsetTop;
+      } else {
+        this.controlClass = 2;
+        total = this.$refs.allShops.offsetTop;
+      }
+      let distance =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      let step = total / 50;
+      if (total > distance) {
+        smoothDown();
+      } else {
+        let newTotal = distance - total;
+        step = newTotal / 50;
+        smoothUp();
+      }
+      function smoothDown() {
+        if (distance < total) {
+          distance += step;
+          document.body.scrollTop = distance;
+          document.documentElement.scrollTop = distance;
+          setTimeout(smoothDown, 10);
+        } else {
+          document.body.scrollTop = total;
+          document.documentElement.scrollTop = total;
+        }
+      }
+      function smoothUp() {
+        if (distance > total) {
+          distance -= step;
+          document.body.scrollTop = distance;
+          document.documentElement.scrollTop = distance;
+          setTimeout(smoothUp, 10);
+        } else {
+          document.body.scrollTop = total;
+          document.documentElement.scrollTop = total;
+        }
+      }
+    }
+  }
 };
 </script>
 
@@ -131,10 +179,13 @@ export default {
     background-color: rgba(255, 87, 80, 0.12);
     border-radius: 22px;
     padding: 0.05rem 0.12rem;
-    margin-right: 0.18rem;
+    margin-left: 0.18rem;
     margin-bottom: 0.2rem;
     font-size: 11px;
     color: #ff5750;
+  }
+  div:nth-of-type(1) {
+    margin-left: 0;
   }
 }
 .shop_info {
@@ -291,5 +342,4 @@ export default {
     }
   }
 }
-
 </style>
