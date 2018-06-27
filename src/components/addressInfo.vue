@@ -27,11 +27,11 @@ export default {
   display: flex;
   box-shadow: 0px 2px 4px 0px rgba(31, 28, 29, 0.05);
   padding: 0.33rem 0;
+  align-items: center;
   .img {
     font-size: 0.6rem;
+    height: 100% !important;
     color: #ff5750;
-    height: 100%;
-    line-height: 2.5rem;
     width: 0.48rem;
     margin-right: 0.1rem;
   }
@@ -44,7 +44,7 @@ export default {
       }
       span:last-child {
         margin-right: 0;
-        margin-left: 0.3rem;
+        margin-left: 0.2rem;
       }
     }
     p {

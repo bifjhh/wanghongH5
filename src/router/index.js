@@ -27,17 +27,17 @@ var router = new VueRouter({
             component: GoodsList
         },
         {
-            path: "/goodsList/goodsInfo",
+            path: "/goodsInfo",
             name: "GoodsInfo",
             component: GoodsInfo
         },
         {
-            path: "/goodsList/commentList",
+            path: "/commentList",
             name: "CommentList",
             component: CommentList
         },
         {
-            path: "/goodsList/orderList",
+            path: "/orderList",
             name: "OrderList",
             component: OrderList
         },

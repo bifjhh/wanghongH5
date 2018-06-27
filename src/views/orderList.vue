@@ -9,6 +9,7 @@
 <script>
 import addressInfo from "@/components/addressInfo";
 export default {
+  created() {},
   components: {
     addressInfo
   },
