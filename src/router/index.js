@@ -4,7 +4,6 @@ import Vue from "vue";
 import VueRouter from "vue-router"; //导入vue路由的依赖包
 Vue.use(VueRouter); //在vue中使用路由
 import GoodsList from "@/views/goodsList";
-
 import GoodsInfo from "@/views/goodsInfo";
 
 // 定义路由规则
@@ -26,7 +25,7 @@ var router = new VueRouter({
             component: GoodsList
         },
         {
-            path: "/goodsInfo",
+            path: "/goodsList/goodsInfo",
             name: "GoodsInfo",
             component: GoodsInfo
         }

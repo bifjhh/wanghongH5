@@ -1,5 +1,5 @@
 <template>
-  <div class="product_list">
+  <div class="product_list" @click="go">
     <div class="product" v-for="item in 3" :key="item">
       <div class="goods_img"></div>
       <div class="goods_ctn">
@@ -22,7 +22,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    go() {
+      this.$router.push({
+        name: "GoodsInfo"
+      });
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

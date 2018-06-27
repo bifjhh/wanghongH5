@@ -48,7 +48,6 @@
           新品上市
         </div>
         <GoodsTmp1 />
-    
       </div>
       <div class="all_product ">
         <div class="all_title" ref="allShops">
@@ -56,7 +55,7 @@
         </div>
         <GoodsTmp2 />
         <GoodsTmp3 />
-        <div class="get_all" @click="go">查看全部商品</div>
+        <div class="get_all" @click="goList">查看全部商品</div>
       </div>
     </div>
   </div>
@@ -86,8 +85,10 @@ export default {
     controlClass: 1
   }),
   methods: {
-    go() {
+    goList() {
       document.documentElement.scrollTop = 0;
+      alert(1);
+
       this.$router.push({
         path: `/goodsList/${3}`
       });
