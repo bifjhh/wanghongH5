@@ -30,17 +30,7 @@ import {
 Vue.use(Carousel);
 Vue.use(CarouselItem);
 
-router.beforeEach((to, from, next) => {
-    console.log(to);
-    console.log(from);
-    next();
-})
-router.afterEach((to, from) => {
-        console.log(to);
-
-        // ...
-    })
-    // 导入组件页面
+// 导入组件页面
 import './config/rem'
 import App from './App' //根组件
 
