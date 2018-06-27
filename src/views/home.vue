@@ -88,7 +88,9 @@ export default {
   methods: {
     go() {
       document.documentElement.scrollTop = 0;
-      this.$router.push("goodsList1");
+      this.$router.push({
+        path: `/goodsList/${3}`
+      });
     },
     goTop(e) {
       let total = "";
