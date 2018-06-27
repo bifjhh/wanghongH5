@@ -1,18 +1,18 @@
 <template>
 <div class="content">
-<commont></commont>
+    <div class="addressInfo">
+        <addressInfo></addressInfo>
+    </div>
 </div>
 </template>
 
 <script>
-import commont from "@/components/goodsCommont";
+import addressInfo from "@/components/addressInfo";
 export default {
   components: {
-    commont
+    addressInfo
   },
-  data: () => ({
-    commontList: [1, 2]
-  })
+  methods: {}
 };
 </script>
 

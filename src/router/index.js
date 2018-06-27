@@ -6,6 +6,7 @@ Vue.use(VueRouter); //在vue中使用路由
 import GoodsList from "@/views/goodsList";
 import GoodsInfo from "@/views/goodsInfo";
 import CommentList from "@/views/commentList";
+import OrderList from "@/views/orderList";
 
 // 定义路由规则
 var router = new VueRouter({
@@ -34,7 +35,12 @@ var router = new VueRouter({
             path: "/goodsList/commentList",
             name: "CommentList",
             component: CommentList
-        }
+        },
+        {
+            path: "/goodsList/orderList",
+            name: "OrderList",
+            component: OrderList
+        },
     ]
 });
 

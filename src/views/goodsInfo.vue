@@ -21,8 +21,8 @@
         </div>
         <div class="goodsNum">
           <h3>数量</h3>
-          <div @click="addNum">
-            <span>
+          <div>
+            <span  @click="addNum">
               <i class="el-icon-plus"></i>
             </span>
             <i>{{buyNum}}</i>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="ensure">
-          <button>确认</button>
+          <button @click="ensureInfo">确认</button>
         </div>
       </div>
     </div>
@@ -142,32 +142,47 @@ export default {
     },
     closeMask() {
       this.controlMask = 0;
-      var mo = function(e) {
-        e.preventDefault();
-      };
-      document.body.style.overflow = ""; //出现滚动条
-      document.removeEventListener("touchmove", mo, false);
+      // var mo = function(e) {
+      //   e.preventDefault();
+      // };
+      // document.body.style.overflow = ""; //出现滚动条
+      // document.removeEventListener("touchmove", mo, false);
     },
     goBuy() {
       this.controlMask = 1;
-      var mo = function(e) {
-        e.preventDefault();
-      };
-      document.body.style.overflow = "hidden";
-      document.addEventListener("touchmove", mo, false); //禁止页面滑动
+      // var mo = function(e) {
+      //   e.preventDefault();
+      // };
+      // document.body.style.overflow = "hidden";
+      // document.addEventListener("touchmove", mo, false); //禁止页面滑动
     },
     addNum() {
       this.buyNum = this.buyNum + 1;
     },
     subNum() {
-      alert(1);
       this.buyNum = this.buyNum - 1;
+      if (this.buyNum <= 0) {
+        // var mo = function(e) {
+        //   e.preventDefault();
+        // };
+        // document.body.style.overflow = ""; //出现滚动条
+        // document.removeEventListener("touchmove", mo, false);
+        this.buyNum = 1;
+        this.controlMask = 0;
+      }
+    },
+    ensureInfo() {
+      this.$router.push({
+        name: "OrderList"
+      });
     }
   }
 };
 </script>
 
 <style>
+body {
+}
 .block .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
 }
