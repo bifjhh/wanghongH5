@@ -87,8 +87,6 @@ export default {
   methods: {
     goList() {
       document.documentElement.scrollTop = 0;
-      alert(1);
-
       this.$router.push({
         path: `/goodsList/${3}`
       });

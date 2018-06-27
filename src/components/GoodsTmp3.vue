@@ -25,6 +25,7 @@
 export default {
   methods: {
     go() {
+      document.documentElement.scrollTop = 0;
       this.$router.push({
         name: "GoodsInfo"
       });

@@ -5,6 +5,7 @@ import VueRouter from "vue-router"; //导入vue路由的依赖包
 Vue.use(VueRouter); //在vue中使用路由
 import GoodsList from "@/views/goodsList";
 import GoodsInfo from "@/views/goodsInfo";
+import CommentList from "@/views/commentList";
 
 // 定义路由规则
 var router = new VueRouter({
@@ -28,6 +29,11 @@ var router = new VueRouter({
             path: "/goodsList/goodsInfo",
             name: "GoodsInfo",
             component: GoodsInfo
+        },
+        {
+            path: "/goodsList/commentList",
+            name: "CommentList",
+            component: CommentList
         }
     ]
 });

@@ -57,7 +57,6 @@ export default {
   },
   created() {
     let that = this;
-    console.log();
     this.controlClass = this.$route.params.id;
     // that.$http.post("", { apiCode: "_diantailist_001" }).then(res => {
     //   if (res.status == 200 && res.statusText == "OK") {
