@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import router from './router'; //导入路由模块
 import axios from 'axios'; //导入axios路由的依赖包
+import ElementUI from 'element-ui';
 Vue.config.productionTip = false
 
 axios.defaults.timeout = 5000;
@@ -23,12 +24,13 @@ import './styles/init.css'
 import 'element-ui/lib/theme-chalk/index.css';
 import {
     Carousel,
-    CarouselItem
+    CarouselItem,
 } from 'element-ui';
 
 
 Vue.use(Carousel);
 Vue.use(CarouselItem);
+Vue.use(ElementUI);
 
 // 导入组件页面
 import './config/rem'

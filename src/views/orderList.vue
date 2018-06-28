@@ -1,6 +1,6 @@
 <template>
 <div class="listContent">
-  <div class="noAddress">
+  <div class="noAddress"  @click="goAddress">
     <div>
     <i class="el-icon-location"></i>
     <span>请手动添加地址</span>
@@ -9,7 +9,7 @@
     <i class="el-icon-arrow-right"></i>
     </span>
   </div>
-    <div class="addressInfo">
+    <div class="addressInfo" @click="goAddress">
         <addressInfo></addressInfo>
     </div>
     <div class="buyList">
@@ -22,7 +22,7 @@
      <i>￥</i>
   <span>322.00</span>
     </p>
-    <button>立即购买</button>
+    <button @click="goBuy">立即购买</button>
   </div>
 
 </div>
@@ -37,7 +37,18 @@ export default {
     addressInfo,
     buyList
   },
-  methods: {}
+  methods: {
+    goAddress() {
+      this.$router.push({
+        name: "AddAddress"
+      });
+    },
+    goBuy() {
+      this.$router.push({
+        name: "OrderInfo"
+      });
+    }
+  }
 };
 </script>
 

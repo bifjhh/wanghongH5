@@ -7,6 +7,8 @@ import GoodsList from "@/views/goodsList";
 import GoodsInfo from "@/views/goodsInfo";
 import CommentList from "@/views/commentList";
 import OrderList from "@/views/orderList";
+import AddAddress from "@/views/addAddress";
+import OrderInfo from "@/views/orderInfo";
 
 // 定义路由规则
 var router = new VueRouter({
@@ -40,6 +42,16 @@ var router = new VueRouter({
             path: "/orderList",
             name: "OrderList",
             component: OrderList
+        },
+        {
+            path: "/addAddress",
+            name: "AddAddress",
+            component: AddAddress
+        },
+        {
+            path: "/orderInfo",
+            name: "OrderInfo",
+            component: OrderInfo
         },
     ]
 });

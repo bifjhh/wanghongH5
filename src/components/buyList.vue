@@ -1,5 +1,4 @@
 <template>
-    <div class="content">
         <div class="info">
             <div class="title">
                 <div></div>
@@ -28,7 +27,6 @@
                 <span>合计</span>
                 <p class="goodsPri">￥320.00</p>
             </div>
-        </div>
     </div>
 </template>
 
