@@ -1,13 +1,12 @@
 <template>
 <div class="addressList">
-   <div class="img">
-       <i class="el-icon-location"></i>
-   </div>
    <div class="addressInfo">
-      <div>
+     <i class="el-icon-location"></i>
           <span>收货人：</span> <span>小三毛</span>
           <span>11111111111</span>
-      </div>
+   </div>
+    <div class="img">
+       <i class="el-icon-location"></i>
       <p>浙江省 杭州市 西湖区 古墩路616号 同人精华大厦C座6楼 杭州启博科技有限公司</p> 
    </div>
    <div class="moreInfo">
@@ -21,38 +20,51 @@ export default {
   methods: {}
 };
 </script>
-
+ 
 <style lang="scss" scoped>
 .addressList {
+  position: relative;
   display: flex;
-  box-shadow: 0px 2px 4px 0px rgba(31, 28, 29, 0.05);
+  flex-direction: column;
   padding: 0.33rem 0;
-  align-items: center;
   .img {
-    font-size: 0.6rem;
-    height: 100% !important;
-    color: #ff5750;
+    padding-right: 0.5rem;
+    display: flex;
+    font-size: 0.3rem;
     width: 0.48rem;
-    margin-right: 0.1rem;
-  }
-  .addressInfo {
-    font-size: 0.34rem;
-    div {
-      margin-bottom: 0.3rem;
-      span {
-        margin-right: 0.1rem;
-      }
-      span:last-child {
-        margin-right: 0;
-        margin-left: 0.2rem;
-      }
+    margin-right: 0.3rem;
+    width: 100%;
+    align-items: center;
+    i {
+      font-size: 0.64rem;
+      color: #ff5750;
+      margin-right: 0.2rem;
     }
     p {
       font-size: 0.26rem;
     }
   }
+  .addressInfo {
+    display: flex;
+    i {
+      font-size: 0.64rem;
+      opacity: 0;
+      margin-right: 0.2rem;
+    }
+    font-size: 0.34rem;
+    span {
+      margin-right: 0.1rem;
+    }
+    span:last-child {
+      margin-right: 0;
+      margin-left: 0.1rem;
+    }
+  }
   .moreInfo {
-    margin-left: 0.7rem;
+    position: absolute;
+    right: 0rem;
+    top: 50%;
+    transform: translate(0, -50%);
     font-size: 0.4rem;
   }
 }
