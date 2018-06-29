@@ -1,5 +1,9 @@
 <template>
 <div class="content">
+  <header>
+    <div @click="goBack"> <i class="el-icon-close"></i></div>
+    <span>订单详情</span>
+  </header>
 <div class="waitGood">
 <img src="../assets/wait.png" alt="">
 <span>已发货，等待买家收货</span>
@@ -47,7 +51,6 @@
                 <p class="goodsPri">￥320.00</p>
             </div>
             </div>
-
             <div class="orderInfo">
                 <div class="orderList">
                     <div><span>订单编号：</span>12345-67890098765</div>
@@ -68,12 +71,33 @@ export default {
   components: {
     addressInfo
   },
-  methods: {}
+  methods: {
+    goBack() {
+      window.history.back(-1);
+    }
+  }
 };
 </script>
  
 <style lang="scss" scoped>
 .content {
+  header {
+    height: 0.88rem;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    line-height: 0.88rem;
+    font-size: 0.36rem;
+    text-align: center;
+    padding: 0 0.28rem;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 6px 0px rgba(0, 6, 13, 0.08);
+    margin-bottom: 0.05rem;
+    div {
+      position: absolute;
+      font-size: 0.4rem;
+    }
+  }
   .baseInfo {
     display: flex;
     padding-top: 0.3rem;

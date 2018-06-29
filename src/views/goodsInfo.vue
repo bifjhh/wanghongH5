@@ -1,5 +1,11 @@
 <template>
-  <div class="content">
+  <div class="contentInfo">
+    <header>
+    <div @click="goBack"> <i class="el-icon-arrow-left"></i></div>
+    <div>
+      <img src="../assets/share.png" alt="">
+    </div>
+  </header>
     <!-- 遮罩层 -->
     <div class="goodMask" v-show="controlMask==1" @touchmove.prevent>
       <div class="goodsInfo">
@@ -175,14 +181,15 @@ export default {
       this.$router.push({
         name: "OrderList"
       });
+    },
+    goBack() {
+      window.history.back(-1);
     }
   }
 };
 </script>
 
 <style>
-body {
-}
 .block .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
 }
@@ -222,14 +229,41 @@ body {
 .block .el-carousel__button {
   background-color: rgba(255, 255, 255, 0.5);
 }
-.content .info {
+.contentInfo header {
+  height: 0.88rem;
+  width: 100%;
+  position: absolute;
+  line-height: 0.88rem;
+  font-size: 0.36rem;
+  text-align: center;
+  padding: 0 0.28rem;
+  box-sizing: border-box;
+  margin-bottom: 0.05rem;
+  z-index: 111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contentInfo header div {
+  font-size: 0.4rem;
+  color: #fff;
+  line-height: 0.88rem;
+  display: flex;
+  align-items: center;
+}
+.contentInfo header div img {
+  height: 0.32rem;
+  width: 0.32rem;
+  display: inline-block;
+}
+.contentInfo .info {
   padding: 0 0.28rem;
   padding-top: 0.39rem;
   height: 2.32rem;
   background-color: #fff;
   box-shadow: 0px 2px 4px 0px rgba(31, 28, 29, 0.05);
 }
-.content .info p {
+.contentInfo .info p {
   font-size: 0.3rem;
   font-weight: normal;
   font-stretch: normal;
@@ -238,88 +272,88 @@ body {
   color: #333333;
   margin-bottom: 0.3rem;
 }
-.content .info .price {
+.contentInfo .info .price {
   display: flex;
   justify-content: space-between;
   align-content: center;
   height: 0.4rem;
   line-height: 0.4rem;
 }
-.content .info .price div .nowPri {
+.contentInfo .info .price div .nowPri {
   font-size: 0.4rem;
   letter-spacing: 0px;
   color: #ff5750;
   margin-right: 0.18rem;
 }
-.content .info .price div .nowPri > span {
+.contentInfo .info .price div .nowPri > span {
   font-size: 0.3rem;
   color: #ff5750;
 }
-.content .info .price div span {
+.contentInfo .info .price div span {
   font-size: 0.3rem;
   color: #999;
 }
-.content .info .price span {
+.contentInfo .info .price span {
   font-size: 0.3rem;
   color: #666;
 }
-.content .desc {
+.contentInfo .desc {
   margin-top: 0.21rem;
   padding: 0 0.28rem;
   background-color: #fff;
   box-shadow: 0px 2px 4px 0px rgba(31, 28, 29, 0.05);
 }
-.content .desc .list {
+.contentInfo .desc .list {
   height: 0.8rem;
   line-height: 0.8rem;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #ddd;
 }
-.content .desc .list .moreList {
+.contentInfo .desc .list .moreList {
   line-height: 0.84rem;
 }
-.content .desc .list div i {
+.contentInfo .desc .list div i {
   display: inline-block;
   font-size: 0.36rem;
 }
-.content .desc .list:last-child {
+.contentInfo .desc .list:last-child {
   border-bottom: 0;
 }
-.content .desc .list span {
+.contentInfo .desc .list span {
   font-size: 0.3rem;
 }
-.content .desc .list span:first-child {
+.contentInfo .desc .list span:first-child {
   color: #999;
   margin-right: 0.16rem;
   font-size: 0.3rem;
 }
-.content .commont {
+.contentInfo .commont {
   margin-top: 0.21rem;
   padding: 0 0.28rem;
   background-color: #fff;
   box-shadow: 0px 2px 4px 0px rgba(31, 28, 29, 0.05);
 }
-.content .commont .list {
+.contentInfo .commont .list {
   height: 0.85rem;
   line-height: 0.85rem;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #ddd;
 }
-.content .commont .list div span {
+.contentInfo .commont .list div span {
   font-size: 0.3rem;
   margin-right: 0.1rem;
 }
-.content .commont .list .moreList span {
+.contentInfo .commont .list .moreList span {
   color: #999;
   margin-right: 0;
 }
-.content .commont .list div i {
+.contentInfo .commont .list div i {
   display: inline-block;
   font-size: 0.36rem;
 }
-.content .goShop {
+.contentInfo .goShop {
   padding: 0 0.28rem;
   height: 1rem;
   line-height: 1rem;
@@ -328,51 +362,52 @@ body {
   background-color: #fff;
   margin-top: 0.2rem;
 }
-.content .goShop .shopName {
+.contentInfo .goShop .shopName {
   display: flex;
   align-items: center;
   font-size: 0.3rem;
 }
-.content .goShop .shopName .img {
+.contentInfo .goShop .shopName .img {
   height: 0.52rem;
   width: 0.52rem;
+  margin-right: 0.1rem;
   border-radius: 100%;
   background-color: #999;
 }
-.content .goShop .enterShop {
+.contentInfo .goShop .enterShop {
   font-size: 0.3rem;
   color: #ff5750;
 }
-.content .shopInfo {
+.contentInfo .shopInfo {
   margin-top: 0.2rem;
   background-color: #fff;
 }
-.content .shopInfo .shopTit {
+.contentInfo .shopInfo .shopTit {
   height: 0.84rem;
   line-height: 0.84rem;
   font-size: 0.3rem;
   border-bottom: 1px solid #ddd;
 }
-.content .shopInfo .shopTit span {
+.contentInfo .shopInfo .shopTit span {
   display: inline-block;
   padding-left: 0.28rem;
 }
-.content .shopInfo .imgList {
+.contentInfo .shopInfo .imgList {
   display: flex;
   flex-direction: column;
 }
-.content .shopInfo .imgList div {
+.contentInfo .shopInfo .imgList div {
   height: 7.5rem;
   width: 100%;
   background-color: #999;
   margin-bottom: 0.2rem;
 }
-.content .goBuy {
+.contentInfo .goBuy {
   height: 1.1rem;
   width: 100%;
   text-align: center;
 }
-.content .goBuy button {
+.contentInfo .goBuy button {
   display: inline-block;
   height: 0.89rem;
   width: 6.95rem;
@@ -382,7 +417,7 @@ body {
   color: #fff;
   font-size: 0.34rem;
 }
-.content .goodMask {
+.contentInfo .goodMask {
   height: 100vh;
   width: 100%;
   position: fixed;

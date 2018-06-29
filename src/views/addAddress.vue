@@ -1,5 +1,9 @@
 <template>
 <div class="addList">
+  <header>
+    <div @click="goBack"> <i class="el-icon-close"></i></div>
+    <span>评论列表</span>
+  </header>
     <!-- 遮罩 -->
 <div class="mask" v-show="controlMask">
    <div class="controlMask">
@@ -13,7 +17,7 @@
 <!-- 新增地址 -->
 <div class="newAdd" v-show="controlAdd">
     <div class="newMask">
-        <img src="../assets/close.png" alt="" class="close" @click="close">
+        <img src="../assets/back.png" alt="" class="close" @click="close">
     <h3>新添收货地址</h3>
     <div class="newInfo">
     <input type="text" placeholder="请输入姓名">
@@ -46,7 +50,7 @@
         <span v-show="!item.type" @click="choose(index)">设为默认</span>     
     </div>
     <div class="controlAdd">
-        <div @click="edit(idnex)">
+        <div @click="edit(index)">
         <img src="../assets/edit.png" alt="">
         <span>编辑</span>
         </div>
@@ -114,6 +118,9 @@ export default {
     },
     saveInfo() {
       this.controlAdd = false;
+    },
+    goBack() {
+      window.history.back(-1);
     }
   }
 };
@@ -122,11 +129,30 @@ export default {
 <style lang="scss" scoped>
 .addList {
   padding-bottom: 1rem;
+  header {
+    height: 0.88rem;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    line-height: 0.88rem;
+    font-size: 0.36rem;
+    text-align: center;
+    padding: 0 0.28rem;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 6px 0px rgba(0, 6, 13, 0.08);
+    margin-bottom: 0.05rem;
+    div {
+      position: absolute;
+      font-size: 0.4rem;
+    }
+  }
   .newAdd {
     position: fixed;
     z-index: 1;
     height: 100%;
     width: 100%;
+    left: 0;
+    top: 0;
     background-color: rgba(0, 0, 0, 0.6);
     .newMask {
       position: absolute;
@@ -193,6 +219,8 @@ export default {
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
     .controlMask {
       position: absolute;
       left: 50%;
