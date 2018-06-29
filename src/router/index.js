@@ -9,6 +9,7 @@ import CommentList from "@/views/commentList";
 import OrderList from "@/views/orderList";
 import AddAddress from "@/views/addAddress";
 import OrderInfo from "@/views/orderInfo";
+import AddressList from "@/views/addressList";
 
 // 定义路由规则
 var router = new VueRouter({
@@ -52,6 +53,11 @@ var router = new VueRouter({
             path: "/orderInfo",
             name: "OrderInfo",
             component: OrderInfo
+        },
+        {
+            path: "/addressList",
+            name: "AddressList",
+            component: AddressList
         },
     ]
 });

@@ -5,7 +5,7 @@
     <span>评论列表</span>
   </header>
     <!-- 遮罩 -->
-<div class="mask" v-show="controlMask">
+<div class="mask" v-show="controlMask" @touchmove.prevent>
    <div class="controlMask">
        <h3>您确定要删除该地址吗?</h3>
        <div>
@@ -15,7 +15,7 @@
    </div>
     </div>
 <!-- 新增地址 -->
-<div class="newAdd" v-show="controlAdd">
+<div class="newAdd" v-show="controlAdd" @touchmove.prevent>
     <div class="newMask">
         <img src="../assets/back.png" alt="" class="close" @click="close">
     <h3>新添收货地址</h3>
