@@ -1,11 +1,44 @@
 <template>
-    <div class>
+<div class="addressInfo">
+  <header>
+    <div @click="goBack"> <i class="el-icon-close"></i></div>
+    <span v-text="tit"></span>
+  </header>
+  <div class="baseInfo">
+    <div class="newMask">
+    <div class="newInfo">
+    <input type="text" placeholder="请输入姓名">
+    </div>
+    <div class="newInfo">
+    <input type="text" placeholder="请输入电话">
+    </div>
+    <div class="newInfo" @click="control" v-show="controlHome">
+    <span>请选择地址</span>
+    <i class="el-icon-arrow-right"></i>
+    </div>
+    <div class=" homeInfo" v-show="!controlHome">
+      <div>
+    <span v-text="hometown1"></span>
+    <span v-text="hometown2"></span>
+    <span v-text="hometown3"></span>
+    </div>
+  <i class="el-icon-arrow-right" @click="control"></i>
+    </div>
+
+
+    <textarea  placeholder="请填写详细街道地址"></textarea>
+</div>
+  </div>
+  <div class="saveInfo">
+    <button @click="saveInfo">确认</button>
+  </div>
+    <div class="mask" v-show="controlMask">
         <!--居住地址三级联动选项-->
     <section class="showChose" >
       <section class="address">
-        <section class="title">
+        <section class="title"  @click="closeAdd">
           <h4>居住地址</h4>
-          <span @click="closeAdd()">×</span>
+          <span>×</span>
         </section>
         <section class="title" >
           <div class="area" @click="provinceSelected()">{{Province?Province:info[province-1].name}}</div>
@@ -20,12 +53,17 @@
       </section>
     </section>
     </div>
+</div>
+
 </template>
 <script>
 import { addressList } from "../assets/addressList.js";
 export default {
   data() {
     return {
+      tit: "新添收货地址",
+      controlHome: true,
+      controlMask: false,
       showChose: false,
       showProvince: true,
       showCity: false,
@@ -41,15 +79,32 @@ export default {
       City: false,
       // v-for循环判断是否为当前
       selected: false,
-      info: addressList
+      info: addressList,
+      hometown1: "",
+      hometown2: "",
+      hometown3: ""
     };
   },
+  created() {
+    this.checkTit();
+  },
   methods: {
+    saveInfo() {
+      window.history.back(-1);
+    },
+    checkTit() {
+      if (this.$route.query.id == 1) {
+        this.tit = "编辑收货地址";
+      }
+    },
+    control() {
+      this.controlMask = true;
+    },
+    closeAdd() {
+      this.controlMask = false;
+    },
     choseAdd: function() {
       this.showChose = true;
-    },
-    closeAdd: function() {
-      this.showChose = false;
     },
     _filter(add, name, code) {
       let result = [];
@@ -61,6 +116,7 @@ export default {
       return result;
     },
     getProvinceId: function(code, input, index) {
+      this.hometown1 = input;
       this.province = code;
       this.Province = input;
       this.showProvince = false;
@@ -84,6 +140,7 @@ export default {
       this.showDistrict = false;
     },
     getCityId: function(code, input, index) {
+      this.hometown2 = input;
       this.city = code;
       this.City = input;
       this.showProvince = false;
@@ -104,6 +161,9 @@ export default {
       this.showDistrict = false;
     },
     getDistrictId: function(code, input, index) {
+      this.hometown3 = input;
+      this.controlMask = false;
+      this.controlHome = false;
       this.district = code;
       this.District = input;
       // 选择当前添加active
@@ -116,46 +176,114 @@ export default {
       this.showProvince = false;
       this.showCity = false;
       this.showDistrict = true;
+    },
+    goBack() {
+      window.history.back(-1);
     }
   }
 };
 </script>
-<style scoped>
-.myAddress {
-  width: 100%;
-  background-color: white;
-  border-top: 4px solid rgba(245, 245, 245, 1);
-  color: #333;
+<style lang="scss" scoped>
+.addressInfo {
+  header {
+    height: 0.88rem;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    line-height: 0.88rem;
+    font-size: 0.36rem;
+    text-align: center;
+    padding: 0 0.28rem;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 6px 0px rgba(0, 6, 13, 0.08);
+    margin-bottom: 0.05rem;
+    div {
+      position: absolute;
+      font-size: 0.4rem;
+    }
+  }
+  .baseInfo {
+    width: 100%;
+    padding: 0 0.28rem;
+    background-color: #fff;
+    .close {
+      position: absolute;
+      right: -0.15rem;
+      top: -0.15rem;
+      height: 0.38rem;
+      width: 0.38rem;
+    }
+    h3 {
+      text-align: center;
+      font-weight: normal;
+      font-size: 0.34rem;
+      margin: 0.34rem 0;
+    }
+    textarea {
+      height: 1.57rem;
+      width: 100%;
+      padding-top: 0.2rem;
+      box-sizing: border-box;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.3rem;
+    }
+    .homeInfo {
+      height: 1rem;
+      border-top: 1px solid #e5e5e5;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      div {
+        span {
+          font-size: 0.3rem;
+          color: #333;
+          margin-right: 0.1rem;
+        }
+      }
+      i {
+        font-size: 0.4rem;
+      }
+    }
+    .newInfo {
+      height: 1rem;
+      border-top: 1px solid #e5e5e5;
+      width: 100%;
+      line-height: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      span {
+        font-size: 0.3rem;
+      }
+      input {
+        font-size: 0.3rem;
+      }
+      i {
+        font-size: 0.4rem;
+      }
+    }
+  }
+  .saveInfo {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 0.98rem;
+    background-color: #fff;
+    text-align: center;
+    line-height: 0.98rem;
+    box-shadow: 0px 3px 8px 0px rgba(0, 6, 13, 0.2);
+    button {
+      width: 6.94rem;
+      height: 0.76rem;
+      border-radius: 8px;
+      background-color: #ff5750;
+      font-size: 0.32rem;
+      color: #fff;
+    }
+  }
 }
-.myAddress .cont {
-  border-bottom: 1px solid rgba(245, 245, 245, 0.8);
-}
-.myAddress .cont span {
-  display: inline-block;
-  font-size: 0.28rem;
-  color: #333;
-  line-height: 0.88rem;
-  margin-left: 0.32rem;
-}
-.myAddress .cont section {
-  float: left;
-}
-.myAddress .cont p {
-  display: inline-block;
-  font-size: 0.28rem;
-  color: #333333;
-  line-height: 0.88rem;
-  margin-left: 1rem;
-}
-.myAddress .cont .pic2 {
-  float: right;
-  width: 0.14rem;
-  height: 0.24rem;
-  margin: 0.32rem 0.32rem 0.32rem 0;
-}
-.myAddress .cont p.text {
-  margin-left: 0.72rem;
-}
+
 .showChose {
   width: 100%;
   height: 100%;
@@ -163,7 +291,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 120;
-  background: rgba(77, 82, 113, 0.8);
+  background: rgba(0, 0, 0, 0.6);
 }
 .address {
   position: absolute;

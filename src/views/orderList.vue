@@ -4,7 +4,7 @@
     <div @click="goBack"> <i class="el-icon-close"></i></div>
     <span>订单确认</span>
   </header>
-  <div class="noAddress"  @click="goAddress">
+  <div class="noAddress"  @click="goAdd">
     <div>
     <i class="el-icon-location"></i>
     <span>请手动添加地址</span>
@@ -42,6 +42,11 @@ export default {
     buyList
   },
   methods: {
+    goAdd() {
+      this.$router.push({
+        name: "AddressList"
+      });
+    },
     goAddress() {
       this.$router.push({
         name: "AddAddress"

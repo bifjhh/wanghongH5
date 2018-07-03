@@ -33,7 +33,7 @@
             </div>
         </div>
     <div class="handle">
-            <button>申请退换货</button>
+            <button @click="goApply">申请退换货</button>
             <button>查看物流</button>
     </div>
 </div>
@@ -72,6 +72,11 @@ export default {
     addressInfo
   },
   methods: {
+    goApply() {
+      this.$router.push({
+        name: "ReturnShop"
+      });
+    },
     goBack() {
       window.history.back(-1);
     }

@@ -2,7 +2,7 @@
 <div class="addList">
   <header>
     <div @click="goBack"> <i class="el-icon-close"></i></div>
-    <span>评论列表</span>
+    <span>收货地址</span>
   </header>
     <!-- 遮罩 -->
 <div class="mask" v-show="controlMask" @touchmove.prevent>
@@ -14,26 +14,6 @@
        </div>
    </div>
     </div>
-<!-- 新增地址 -->
-<div class="newAdd" v-show="controlAdd" @touchmove.prevent>
-    <div class="newMask">
-        <img src="../assets/back.png" alt="" class="close" @click="close">
-    <h3>新添收货地址</h3>
-    <div class="newInfo">
-    <input type="text" placeholder="请输入姓名">
-    </div>
-    <div class="newInfo">
-    <input type="text" placeholder="请输入电话">
-    </div>
-    <div class="newInfo">
-    <span>请选择地址</span>
-    <i class="el-icon-arrow-right"></i>
-    </div>
-    <textarea  placeholder="请填写详细街道地址"></textarea>
-    <button @click="saveInfo">保存</button>
-    </div>
-</div>
-
 <div class="addressList" v-for="(item,index) in list" :key="index">
     <div class="choose" :class="item.type?'chooseList':''" >
    <div class="addressInfo">
@@ -107,17 +87,19 @@ export default {
       this.list.splice(this.delIndex, 1);
       this.controlMask = false;
     },
-    close() {
-      this.controlAdd = false;
-    },
+
     edit(e) {
-      this.controlAdd = true;
+      this.$router.push({
+        name: "AddressList",
+        query: {
+          id: 1
+        }
+      });
     },
     addNew() {
-      this.controlAdd = true;
-    },
-    saveInfo() {
-      this.controlAdd = false;
+      this.$router.push({
+        name: "AddressList"
+      });
     },
     goBack() {
       window.history.back(-1);
