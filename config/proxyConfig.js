@@ -1,8 +1,8 @@
 module.exports = {
     proxy: {
         '/api': {
-            target: '', // 接口域名
-            changeOrigin: false, //是否跨域
+            target: 'http://www.whxq.fenbot.com/api', // 接口域名
+            changeOrigin: true, //是否跨域
             pathRewrite: {
                 '^/api': '' //需要rewrite的,
             }

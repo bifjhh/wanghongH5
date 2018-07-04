@@ -72,12 +72,7 @@ export default {
     GoodsTmp3
   },
   created() {
-    let that = this;
-    // that.$http.post("", { apiCode: "_diantailist_001" }).then(res => {
-    //   if (res.status == 200 && res.statusText == "OK") {
-    //     that.webview = res.data.info.link_to;
-    //   }
-    // });
+    this.getInfo();
   },
 
   data: () => ({
@@ -85,10 +80,17 @@ export default {
     controlClass: 1
   }),
   methods: {
+    getInfo() {
+      this.$http.post("/api/shop").then(res => {
+        if (res.status == 200 && res.statusText == "OK") {
+          alert(1);
+        }
+      });
+    },
     goList() {
       document.documentElement.scrollTop = 0;
       this.$router.push({
-        path: `/goodsList/${3}`
+        path: `/goodsList/${1}`
       });
     },
     goTop(e) {

@@ -6,8 +6,8 @@ Vue.config.productionTip = false
 
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-axios.defaults.baseURL = process.env.API_ROOT
-    // request interceptor
+// axios.defaults.baseURL = process.env.API_ROOT
+// request interceptor
 axios.interceptors.request.use(config => {
 
     return config
