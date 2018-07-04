@@ -122,7 +122,6 @@ export default {
     padding: 0 0.28rem;
     box-sizing: border-box;
     box-shadow: 0px 3px 6px 0px rgba(0, 6, 13, 0.08);
-    margin-bottom: 0.05rem;
     div {
       position: absolute;
       font-size: 0.4rem;
@@ -242,7 +241,7 @@ export default {
     flex-direction: column;
     background-color: #fff;
     box-shadow: 0px 2px 4px 0px rgba(31, 28, 29, 0.05);
-    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
     .chooseList {
       background-color: #ffeeed;
     }

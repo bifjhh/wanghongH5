@@ -238,7 +238,6 @@ export default {
   text-align: center;
   padding: 0 0.28rem;
   box-sizing: border-box;
-  margin-bottom: 0.05rem;
   z-index: 111;
   display: flex;
   justify-content: space-between;

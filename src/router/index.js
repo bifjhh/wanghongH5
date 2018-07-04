@@ -11,6 +11,9 @@ import AddAddress from "@/views/addAddress";
 import OrderInfo from "@/views/orderInfo";
 import AddressList from "@/views/addressList";
 import ReturnShop from "@/views/returnShop";
+import AssessInfo from "@/views/assessInfo";
+import MyOrder from "@/views/myOrder";
+import WatchStatus from "@/views/watchStatus";
 
 // 定义路由规则
 var router = new VueRouter({
@@ -64,6 +67,21 @@ var router = new VueRouter({
             path: "/returnShop",
             name: "ReturnShop",
             component: ReturnShop
+        },
+        {
+            path: "/assessInfo",
+            name: "AssessInfo",
+            component: AssessInfo
+        },
+        {
+            path: "/myOrder",
+            name: "MyOrder",
+            component: MyOrder
+        },
+        {
+            path: "/watchStatus",
+            name: "WatchStatus",
+            component: WatchStatus
         },
     ]
 });

@@ -44,7 +44,6 @@ export default {
     padding: 0 0.28rem;
     box-sizing: border-box;
     box-shadow: 0px 3px 6px 0px rgba(0, 6, 13, 0.08);
-    margin-bottom: 0.05rem;
     div {
       position: absolute;
       font-size: 0.4rem;
