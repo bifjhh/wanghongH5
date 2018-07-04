@@ -81,9 +81,8 @@ export default {
   }),
   methods: {
     getInfo() {
-      this.$http.post("/api/shop").then(res => {
+      this.$http.post("/api/shop", { star_id: 1 }).then(res => {
         if (res.status == 200 && res.statusText == "OK") {
-          alert(1);
         }
       });
     },

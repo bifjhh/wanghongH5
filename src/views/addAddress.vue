@@ -69,7 +69,16 @@ export default {
     delIndex: 0,
     controlAdd: false
   }),
+  created() {
+    this.getList();
+  },
   methods: {
+    getList() {
+      this.$http.post("/api/shop/user/address_list").then(res => {
+        if (res.status == 200 && res.statusText == "OK") {
+        }
+      });
+    },
     choose(e) {
       for (var i in this.list) {
         this.list[i].type = false;
